@@ -3,20 +3,20 @@ package ATMProject;
 import java.math.BigDecimal;
 
 public class PenyetoranTunai {
-    private int norek;
     private BigDecimal jumlah;
-
-    DataBank data = new DataBank();
+    private DataBank dataBank;
     DispenserUangTunai dispenserCash = new DispenserUangTunai();
 
-    public PenyetoranTunai(int norek, BigDecimal jumlah) {
-        this.norek = norek;
+    public PenyetoranTunai(BigDecimal jumlah, DataBank dataBank) {
         this.jumlah = jumlah;
+        this.dataBank = dataBank;
     }
 
-
     public void execute() {
-        data.rekening.credit(jumlah);
-        System.out.println("Saldo Rek = " + data.rekening.getSaldo());
+        dataBank.credit(jumlah);
+        //TO DO : update
+        dispenserCash.addCash(jumlah);
+        System.out.println("Saldo Rek = " + dataBank.rekening.getSaldo());
+        System.out.println("Saldo Dispenser Cash = " +dispenserCash.getJumlah()+ " Lembar");
     }
 }

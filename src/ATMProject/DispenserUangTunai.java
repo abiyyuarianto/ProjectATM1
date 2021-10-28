@@ -8,8 +8,6 @@ public class DispenserUangTunai {
     private int jumlah = 1000; // jumlah uang tunai di dispenser 1000Lembar
     private int denom50 = 50000; //nilai uang perlembar
 
-    public DispenserUangTunai() {
-    }
 
     public int getJumlah() {
         return jumlah;
@@ -23,5 +21,10 @@ public class DispenserUangTunai {
     //Method untuk cek kecukupan uang cash
     public boolean isSufficient(BigDecimal cash){
        return this.jumlah >cash.intValue()/denom50;
+    }
+
+    //Method untuk menambah lembaran uang cash
+    public void addCash(BigDecimal cash){
+        this.jumlah+=cash.intValue()/denom50;
     }
 }

@@ -3,14 +3,14 @@ package ATMProject;
 import java.math.BigDecimal;
 
 public class PengecekanSaldo {
-    private int noRek;
-    DataBank data = new DataBank();
 
-    public PengecekanSaldo(int noRek) {
-        this.noRek = noRek;
+    private DataBank dataBank;
+
+    public PengecekanSaldo(DataBank dataBank) {
+        this.dataBank = dataBank;
     }
 
-    public BigDecimal cekSaldo(){
-        return data.getSaldo(noRek);
+    public BigDecimal execute(){
+         return this.dataBank.rekening.getSaldo();
     }
 }

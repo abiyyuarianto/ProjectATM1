@@ -35,25 +35,25 @@ public class Main {
                 menu = input.nextInt();
                 switch (menu) {
                     case 1:
-                        PengecekanSaldo inquiry = new PengecekanSaldo(noRek);
-                        System.out.println("Saldo = "+ inquiry.cekSaldo().toString());
+                        PengecekanSaldo inquiry = new PengecekanSaldo(dataBank);
+                        System.out.println("Saldo = "+ inquiry.execute().toString());
                         break;
                     case 2:
                         System.out.print("Jumlah yang ditarik = ");
                         BigDecimal cash = input.nextBigDecimal();
-                        PenarikanTunai tarikTunai = new PenarikanTunai(noRek,cash);
+                        PenarikanTunai tarikTunai = new PenarikanTunai(cash, dataBank);
                         tarikTunai.execute();
                         break;
                     case 3:
+                        System.out.print("Jumlah yang disetor = ");
+                        BigDecimal cashSetor = input.nextBigDecimal();
+                        PenyetoranTunai setorTunai = new PenyetoranTunai(cashSetor, dataBank);
+                        setorTunai.execute();
                         break;
                     case 4:
                         break;
-
                 }
         }while (menu!=4);
 
     }
-
-
-
 }
