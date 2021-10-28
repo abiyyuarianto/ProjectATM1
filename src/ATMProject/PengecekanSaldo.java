@@ -1,11 +1,12 @@
 package ATMProject;
 
-public class PengecekanSaldo {
-    //int noRekening;
+import java.math.BigDecimal;
 
-    public void cekSaldo(int noRekening){
-        if(noRekening == 8421321){
-            System.out.println("Rp.50.000.000");
-        }
-    };
+public class PengecekanSaldo {
+    private int noRek;
+
+    public BigDecimal cekSaldo(int rek){
+        DataBank data = new DataBank();
+        return data.getSaldo(rek);
+    }
 }

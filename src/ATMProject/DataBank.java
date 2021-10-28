@@ -1,26 +1,23 @@
 package ATMProject;
 
+import java.math.BigDecimal;
+
 public class DataBank {
-    Rekening rekening = new Rekening();
 
-    public boolean getUser(int noRek, int PIN){
+    Rekening rekening = new Rekening(112233,1111,new BigDecimal(5000000));
 
-        if(noRek == 8421321 && PIN == 123){
-            return true;
-        }
-
-        return false;
+    public boolean authenticateUser(int noRek, int PIN){
+        return (noRek==rekening.getNoRekening()&& rekening.validatePIN(PIN));
     }
 
-    public double getSaldo(int noRek){
-        return 0;
+    public BigDecimal getSaldo(int noRek){
+        return this.rekening.getSaldo();
     }
 
-    public void debit(int noRek, double jumlah){
-
+    public void debit(BigDecimal jumlah){
+        this.rekening.debit(jumlah);
     }
-    public void creadit(int noRek, double jumlah){
 
-    }
+    public void credit(BigDecimal jumlah){ this.rekening.credit(jumlah);}
 
 }

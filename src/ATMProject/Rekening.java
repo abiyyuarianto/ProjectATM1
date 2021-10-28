@@ -1,31 +1,35 @@
 package ATMProject;
 
+import java.math.BigDecimal;
+
 public class Rekening {
-    private int noRekening = 8421321;
-    private int pin = 123;
-    private double saldo = 50000000;
+    private int noRekening;
+    private int pin;
+    private BigDecimal saldo;
 
-    public Rekening(){
-
+    public Rekening(int noRekening, int pin, BigDecimal saldo) {
+        this.noRekening = noRekening;
+        this.pin = pin;
+        this.saldo = saldo;
     }
 
     //getter
     public int getNoRekening() {
         return noRekening;
     }
-    public int getPin() { return pin; }
-    public double getSaldo() { return saldo; }
-
-    //setter
-    public void setNoRekening(int noRekening) {
-        this.noRekening = noRekening;
+    public BigDecimal getSaldo() {
+        return saldo;
+    }
+    public boolean validatePIN(int pin){
+        return this.pin==pin;
     }
 
-    public void setPin(int pin) {
-        this.pin = pin;
+    //mengurangi saldo rekening
+    public void debit(BigDecimal jumlah){
+        this.saldo = saldo.add(jumlah);
     }
-
-    public void setSaldo(int saldo) {
-        this.saldo = saldo;
+    //menambah saldo rekening
+    public void credit(BigDecimal jumlah){
+        this.saldo = saldo.subtract(jumlah);
     }
 }
