@@ -20,6 +20,8 @@ public class Rekening {
     public BigDecimal getSaldo() {
         return saldo;
     }
+
+    //Method untuk validasi PIN rekening
     public boolean validatePIN(int pin){
         return this.pin==pin;
     }

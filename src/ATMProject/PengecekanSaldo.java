@@ -10,7 +10,7 @@ public class PengecekanSaldo {
         this.dataBank = dataBank;
     }
 
-    public BigDecimal execute(){
-         return this.dataBank.rekening.getSaldo();
+    public void execute(){
+         System.out.println(this.dataBank.rekening.getSaldo());
     }
 }
