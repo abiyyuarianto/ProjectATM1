@@ -11,6 +11,7 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         DataBank dataBank = new DataBank();
+        DispenserUangTunai dispenserUangTunai = new DispenserUangTunai();
 
         System.out.print("Masukan No Rekening Anda: ");
         noRek = input.nextInt();
@@ -41,13 +42,13 @@ public class Main {
                     case 2:
                         System.out.print("Jumlah yang ditarik = ");
                         BigDecimal cash = input.nextBigDecimal();
-                        PenarikanTunai tarikTunai = new PenarikanTunai(cash, dataBank);
+                        PenarikanTunai tarikTunai = new PenarikanTunai(cash, dataBank,dispenserUangTunai);
                         tarikTunai.execute();
                         break;
                     case 3:
                         System.out.print("Jumlah yang disetor = ");
                         BigDecimal cashSetor = input.nextBigDecimal();
-                        PenyetoranTunai setorTunai = new PenyetoranTunai(cashSetor, dataBank);
+                        PenyetoranTunai setorTunai = new PenyetoranTunai(cashSetor, dataBank, dispenserUangTunai);
                         setorTunai.execute();
                         break;
                     case 4:
