@@ -1,4 +1,5 @@
 package ATMProject;
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Main {
@@ -34,15 +35,20 @@ public class Main {
                 menu = input.nextInt();
                 switch (menu) {
                     case 1:
-                        System.out.println(new PengecekanSaldo().cekSaldo(noRek));
+                        PengecekanSaldo inquiry = new PengecekanSaldo(noRek);
+                        System.out.println("Saldo = "+ inquiry.cekSaldo().toString());
                         break;
                     case 2:
+                        System.out.print("Jumlah yang ditarik = ");
+                        BigDecimal cash = input.nextBigDecimal();
+                        PenarikanTunai tarikTunai = new PenarikanTunai(noRek,cash);
+                        tarikTunai.execute();
                         break;
                     case 3:
-
                         break;
                     case 4:
                         break;
+
                 }
         }while (menu!=4);
 

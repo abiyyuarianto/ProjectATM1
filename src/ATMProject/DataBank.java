@@ -4,20 +4,23 @@ import java.math.BigDecimal;
 
 public class DataBank {
 
-    Rekening rekening = new Rekening(112233,1111,new BigDecimal(5000000));
+    Rekening rekening = new Rekening(111,111,new BigDecimal(900000));
+
+    public DataBank() {
+    }
 
     public boolean authenticateUser(int noRek, int PIN){
         return (noRek==rekening.getNoRekening()&& rekening.validatePIN(PIN));
     }
 
     public BigDecimal getSaldo(int noRek){
-        return this.rekening.getSaldo();
+        return rekening.getSaldo();
     }
 
     public void debit(BigDecimal jumlah){
-        this.rekening.debit(jumlah);
+        rekening.debit(jumlah);
     }
 
-    public void credit(BigDecimal jumlah){ this.rekening.credit(jumlah);}
+    public void credit(BigDecimal jumlah){ rekening.credit(jumlah);}
 
 }

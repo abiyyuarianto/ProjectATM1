@@ -4,9 +4,13 @@ import java.math.BigDecimal;
 
 public class PengecekanSaldo {
     private int noRek;
+    DataBank data = new DataBank();
 
-    public BigDecimal cekSaldo(int rek){
-        DataBank data = new DataBank();
-        return data.getSaldo(rek);
+    public PengecekanSaldo(int noRek) {
+        this.noRek = noRek;
+    }
+
+    public BigDecimal cekSaldo(){
+        return data.getSaldo(noRek);
     }
 }

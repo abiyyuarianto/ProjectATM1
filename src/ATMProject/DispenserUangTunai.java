@@ -1,5 +1,7 @@
 package ATMProject;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 
 public class DispenserUangTunai {
@@ -9,15 +11,17 @@ public class DispenserUangTunai {
     public DispenserUangTunai() {
     }
 
+    public int getJumlah() {
+        return jumlah;
+    }
+
     //Method untuk mengeluarkan lembaran uang cash
-    public void dispenseCash(BigDecimal jumlah){
-        while (isSufficient(jumlah)){
-            this.jumlah-=jumlah.intValue()/denom50;
-        }
+    public void dispenseCash(BigDecimal cash){
+        this.jumlah-=cash.intValue()/denom50;
     }
 
     //Method untuk cek kecukupan uang cash
-    public boolean isSufficient(BigDecimal jumlah){
-       return this.jumlah >jumlah.intValue()/denom50;
+    public boolean isSufficient(BigDecimal cash){
+       return this.jumlah >cash.intValue()/denom50;
     }
 }

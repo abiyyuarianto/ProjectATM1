@@ -26,10 +26,10 @@ public class Rekening {
 
     //mengurangi saldo rekening
     public void debit(BigDecimal jumlah){
-        this.saldo = saldo.add(jumlah);
+        this.saldo = saldo.subtract(jumlah);
     }
     //menambah saldo rekening
     public void credit(BigDecimal jumlah){
-        this.saldo = saldo.subtract(jumlah);
+        this.saldo = saldo.add(jumlah);
     }
 }
