@@ -27,10 +27,11 @@ public class Main {
         } while (!userAuthenticate);
 
         do {
-                System.out.println("1.Cek Saldo");
-                System.out.println("2.Tarik Tunai");
-                System.out.println("3.Setor Tunai");
-                System.out.println("4.Keluar");
+                System.out.println("\t=======Menu=======");
+                System.out.println("\t1.Cek Saldo");
+                System.out.println("\t2.Tarik Tunai");
+                System.out.println("\t3.Setor Tunai");
+                System.out.println("\t4.Keluar");
                 System.out.print("Pilih Menu: ");
 
                 menu = input.nextInt();

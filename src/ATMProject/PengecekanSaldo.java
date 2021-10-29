@@ -1,5 +1,6 @@
 package ATMProject;
-
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.math.BigDecimal;
 
 public class PengecekanSaldo {
@@ -11,6 +12,14 @@ public class PengecekanSaldo {
     }
 
     public void execute(){
-         System.out.println(this.dataBank.rekening.getSaldo());
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
+        System.out.printf("Saldo: %s %n", kursIndonesia.format(this.dataBank.rekening.getSaldo()));
     }
 }
