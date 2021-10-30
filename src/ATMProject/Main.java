@@ -7,24 +7,21 @@ public class Main {
 
     public static void main (String[] args){
         int menu;
-        boolean bError = true;
-        boolean userAuthenticate = false;
-
         Scanner input = new Scanner(System.in);
-        DataBank dataBank = new DataBank();
-        DispenserUangTunai dispenserUangTunai = new DispenserUangTunai();
+        ATM atm = new ATM();
+
         try {
             do {
                 System.out.print("Masukan No Rekening Anda: ");
                 int noRek = input.nextInt();
                 System.out.print("Masukan PIN Anda: ");
                 int PIN = input.nextInt();
-                if (dataBank.authenticateUser(noRek, PIN)) {
-                    userAuthenticate = true;
+                if (atm.dataBank.authenticateUser(noRek, PIN)) {
+                    atm.setUserAuthenticate(true);
                 } else {
                     System.out.print("PIN SALAH! ");
                 }
-            } while (!userAuthenticate);
+            } while (!atm.isUserAuthenticate());
 
             do {
                 System.out.println("\t=======Menu=======");
@@ -37,19 +34,19 @@ public class Main {
                 menu = input.nextInt();
                 switch (menu) {
                     case 1:
-                        PengecekanSaldo inquiry = new PengecekanSaldo(dataBank);
+                        PengecekanSaldo inquiry = new PengecekanSaldo(atm.dataBank);
                         inquiry.execute();
                         break;
                     case 2:
                         System.out.print("Jumlah yang ditarik = ");
                         BigDecimal cash = input.nextBigDecimal();
-                        PenarikanTunai tarikTunai = new PenarikanTunai(cash, dataBank, dispenserUangTunai);
+                        PenarikanTunai tarikTunai = new PenarikanTunai(cash, atm.dataBank, atm.dispenserUangTunai);
                         tarikTunai.execute();
                         break;
                     case 3:
                         System.out.print("Jumlah yang disetor = ");
                         BigDecimal cashSetor = input.nextBigDecimal();
-                        PenyetoranTunai setorTunai = new PenyetoranTunai(cashSetor, dataBank, dispenserUangTunai);
+                        PenyetoranTunai setorTunai = new PenyetoranTunai(cashSetor, atm.dataBank, atm.dispenserUangTunai);
                         setorTunai.execute();
                         break;
                     case 4:
