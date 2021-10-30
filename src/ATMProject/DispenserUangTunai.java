@@ -5,8 +5,12 @@ import org.jetbrains.annotations.NotNull;
 import java.math.BigDecimal;
 
 public class DispenserUangTunai {
-    private int jumlah = 1000; // jumlah uang tunai di dispenser 1000Lembar
+    private int jumlah; // jumlah uang tunai di ATM
     final int denom50 = 50000; //nilai uang perlembar
+
+    public DispenserUangTunai() {
+        this.jumlah = 100; // jumlah uang tunai diATM diset 100lembar
+    }
 
     //method untuk mendapatkan jumlah lembar uang cash
     public int getJumlah() {

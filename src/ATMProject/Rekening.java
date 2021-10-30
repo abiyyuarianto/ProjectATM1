@@ -7,10 +7,10 @@ public class Rekening {
     private int pin;
     private BigDecimal saldo;
 
-    public Rekening(int noRekening, int pin, BigDecimal saldo) {
-        this.noRekening = noRekening;
-        this.pin = pin;
-        this.saldo = saldo;
+    public Rekening() {
+        this.noRekening = 111;
+        this.pin = 111;
+        this.saldo = new BigDecimal(1000000);
     }
 
     //getter

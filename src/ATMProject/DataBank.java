@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class DataBank {
 
     //instansiasi rekening
-    Rekening rekening = new Rekening(111,111,new BigDecimal(900000));
+    Rekening rekening = new Rekening();
 
     public DataBank() {
     }
